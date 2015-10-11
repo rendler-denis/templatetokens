@@ -1,0 +1,16 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    token_name:
+        label:      koderhut.templatetokens::lang.fields.token_name.label
+        searchable: true
+
+    token_value:
+        label:      koderhut.templatetokens::lang.fields.token_value.label
+        searchable: true
+
+    token_scope:
+        label:      koderhut.templatetokens::lang.fields.token_scope.label
+

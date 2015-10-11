@@ -1,0 +1,7 @@
+1.0.1:
+  - First version of TemplateTokens
+  - create_variables_table.php
+
+1.0.2:
+  - Add some default tokens
+  - add_default_tokens.php

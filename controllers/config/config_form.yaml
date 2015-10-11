@@ -1,0 +1,25 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name:              Token
+
+# Model Form Field configuration
+form:              $/koderhut/templatetokens/models/token/fields.yaml
+
+# Model Class name
+modelClass:        KoderHut\TemplateTokens\Models\Token
+
+# Default redirect location
+defaultRedirect:   koderhut/templatetokens/config
+
+## Create page
+create:
+    title:         koderhut.templatetoken::lang.popup.create_token.label
+    redirectClose: koderhut/templatetokens/config
+
+## Update page
+update:
+    title:         koderhut.templatetoken::lang.popup.update_token.label
+    redirectClose: koderhut/templatetokens/config

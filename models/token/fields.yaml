@@ -1,0 +1,25 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    token_name:
+        label:       koderhut.templatetokens::lang.fields.token_name.label
+        comment:     koderhut.templatetokens::lang.fields.token_name.description
+        placeholder: koderhut.templatetokens::lang.fields.token_name.placeholder
+        type:        text
+        span:        left
+
+    token_scope:
+        label:       koderhut.templatetokens::lang.fields.token_scope.label
+        comment:     koderhut.templatetokens::lang.fields.token_scope.description
+        placeholder: koderhut.templatetokens::lang.fields.token_scope.placeholder
+        span:        right
+        type:        dropdown
+
+    token_value:
+        label:       koderhut.templatetokens::lang.fields.token_value.label
+        comment:     koderhut.templatetokens::lang.fields.token_value.description
+        placeholder: koderhut.templatetokens::lang.fields.token_value.placeholder
+        type:        textarea
+        size:        small

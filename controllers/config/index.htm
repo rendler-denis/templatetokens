@@ -1,0 +1,17 @@
+<?php Block::put('breadcrumb') ?>
+<ul>
+    <li>
+        <a href="<?= Backend::url('system/settings') ?>">
+            <?= e(trans('system::lang.settings.menu_label')) ?>
+        </a>
+    </li>
+    <li><?= e(trans('koderhut.templatetokens::lang.plugin.name')) ?></li>
+    <li><?= e(trans($this->pageTitle)) ?></li>
+</ul>
+<?php Block::endPut() ?>
+
+<div class="padded-container">
+    <?= $this->makeHintPartial('koderhut_templatetokens_hint', 'hint') ?>
+</div>
+
+<?= $this->listRender() ?>
