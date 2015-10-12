@@ -17,19 +17,12 @@ use Backend\Models\BrandSettings;
 use KoderHut\TemplateTokens\Classes\TokensService;
 use KoderHut\TemplateTokens\Models\Token;
 
-/**
- * Class AddDefaultTokens
- *
- * @package KoderHut\TemplateTokens\Updates
- */
+
 class AddDefaultTokens
     extends Seeder
 {
 
-    /**
-     * Create the main table where we store the new
-     * tokens and their values
-     */
+    
     public function run()
     {
         Token::create([
