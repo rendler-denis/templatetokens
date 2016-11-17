@@ -12,7 +12,7 @@ namespace KoderHut\TemplateTokens\Updates;
 
 use Seeder;
 
-use Backend\Models\BrandSettings;
+use Backend\Models\BrandSetting;
 
 use KoderHut\TemplateTokens\Classes\TokensService;
 use KoderHut\TemplateTokens\Models\Token;
@@ -27,13 +27,13 @@ class AddDefaultTokens
     {
         Token::create([
             'token_name'  => 'app_name',
-            'token_value' => BrandSettings::get('app_name'),
+            'token_value' => BrandSetting::get('app_name'),
             'token_scope' => TokensService::TOKEN_SCOPE_GLOBAL,
         ]);
 
         Token::create([
             'token_name'  => 'app_tagline',
-            'token_value' => BrandSettings::get('app_tagline'),
+            'token_value' => BrandSetting::get('app_tagline'),
             'token_scope' => TokensService::TOKEN_SCOPE_GLOBAL,
         ]);
     }
