@@ -5,3 +5,6 @@
 1.0.2:
   - Add some default tokens
   - add_default_tokens.php
+
+1.0.3:
+  - Fix class naming change
