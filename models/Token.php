@@ -59,6 +59,11 @@ class Token
     protected $fillable = ['token_name', 'token_value', 'token_scope'];
 
     /**
+     * @var string
+     */
+    protected $keyType = "string";
+
+    /**
      * Query scope method to add the token_scope constraint
      *
      * @param        $query
