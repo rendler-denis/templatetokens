@@ -11,7 +11,6 @@
 namespace KoderHut\TemplateTokens\Classes\Support\Facades;
 
 use Illuminate\Support\Facades\Facade;
-
 use KoderHut\TemplateTokens\Classes\TokensService as TKS;
 
 /**
@@ -20,10 +19,8 @@ use KoderHut\TemplateTokens\Classes\TokensService as TKS;
  *
  * @package KoderHut\TemplateTokens\Classes\Support\Facades
  */
-class Tokens
-    extends Facade
+class Tokens extends Facade
 {
-
     /**
      * Return the facade namespace
      *

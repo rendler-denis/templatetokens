@@ -17,8 +17,7 @@ use KoderHut\TemplateTokens\Classes\Support\Facades\Tokens as TokensFacade;
 /**
  * Config Model
  */
-class Token
-    extends Model
+class Token extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
@@ -40,7 +39,7 @@ class Token
      *
      * @var string
      */
-    public $primaryKey = 'token_name';
+    public $primaryKey = 'entity_id';
 
     public $rules = [
         'token_name'  => 'required',
@@ -57,11 +56,6 @@ class Token
      * @var array Fillable fields
      */
     protected $fillable = ['token_name', 'token_value', 'token_scope'];
-
-    /**
-     * @var string
-     */
-    protected $keyType = "string";
 
     /**
      * Query scope method to add the token_scope constraint

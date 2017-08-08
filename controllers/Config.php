@@ -10,27 +10,16 @@
 
 namespace KoderHut\TemplateTokens\Controllers;
 
-use App,
-    BackendMenu,
-    Lang,
-    Request,
-    Flash;
-
 use Illuminate\Database\QueryException;
-
 use System\Classes\SettingsManager;
-
 use Backend\Classes\Controller as BackendController;
-
-use KoderHut\TemplateTokens\Classes\TokenException,
-    KoderHut\TemplateTokens\Plugin,
-    KoderHut\TemplateTokens\Models\Token;
+use KoderHut\TemplateTokens\Classes\TokenException;
+use KoderHut\TemplateTokens\Models\Token;
 
 /**
  * Config Back-end Controller
  */
-class Config
-    extends BackendController
+class Config extends BackendController
 {
 
     /**
@@ -64,7 +53,7 @@ class Config
     {
         parent::__construct();
 
-        BackendMenu::setContext('October.System', 'system', 'config');
+        \BackendMenu::setContext('October.System', 'system', 'config');
         SettingsManager::setContext('KoderHut.TemplateTokens', 'token_config');
 
         $this->addJs('/plugins/koderhut/templatetokens/assets/js/templatetokens.js');
@@ -84,6 +73,7 @@ class Config
 
     /**
      * @return mixed
+     * @throws TokenException
      */
     public function onCreate()
     {
@@ -92,8 +82,7 @@ class Config
 
             return $this->listRefresh();
         } catch (QueryException $exc) {
-            App::make('Illuminate\Contracts\Debug\ExceptionHandler')
-                ->report($exc);
+            \App::make('Illuminate\Contracts\Debug\ExceptionHandler')->report($exc);
 
             throw new TokenException('', $exc->getCode());
         }
@@ -128,8 +117,7 @@ class Config
 
             return $this->listRefresh();
         } catch (QueryException $exc) {
-            App::make('Illuminate\Contracts\Debug\ExceptionHandler')
-                ->report($exc);
+            \App::make('Illuminate\Contracts\Debug\ExceptionHandler')->report($exc);
 
             throw new TokenException('', $exc->getCode());
         }
@@ -157,13 +145,13 @@ class Config
                     $record->delete();
                 }
 
-                Flash::success(Lang::get('backend::lang.list.delete_selected_success'));
+                \Flash::success(\Lang::get('backend::lang.list.delete_selected_success'));
             }
             else {
-                Flash::error(Lang::get('backend::lang.list.delete_selected_empty'));
+                \Flash::error(\Lang::get('backend::lang.list.delete_selected_empty'));
             }
         } catch (QueryException $exc) {
-            App::make('Illuminate\Contracts\Debug\ExceptionHandler')->report($exc);
+            \App::make('Illuminate\Contracts\Debug\ExceptionHandler')->report($exc);
 
             throw new TokenException('', $exc->getCode());
         }

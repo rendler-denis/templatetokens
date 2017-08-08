@@ -10,3 +10,5 @@
   - Fix class naming change
 
 1.0.4: !!! DO NOT UPDATE UNLESS YOU ARE USING OCTOBERCMS BUILD 420+. Fix bug with token tag name not being displayed on versions 420 and upwards. These versions upgraded Laravel to 5.5 which introduces a new property on the model resulting in the bug fixed here.
+
+1.0.5: Fix issue with not token not being displayed properly for other scopes after upgrade to OctoberCMS v1.0.420

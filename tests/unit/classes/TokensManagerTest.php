@@ -11,16 +11,12 @@
 namespace KoderHut\TemplateTokens\Tests\Unit\Classes;
 
 use PluginTestCase;
-
 use Illuminate\Database\Eloquent\Collection;
+use KoderHut\TemplateTokens\Classes\TokensManager;
+use KoderHut\TemplateTokens\Models\Token;
 
-use KoderHut\TemplateTokens\Classes\TokensManager,
-    KoderHut\TemplateTokens\Models\Token;
-
-class TokensManagerTest
-    extends PluginTestCase
+class TokensManagerTest extends PluginTestCase
 {
-
     /**
      * Token scopes
      */

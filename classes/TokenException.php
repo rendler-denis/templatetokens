@@ -10,18 +10,13 @@
 
 namespace KoderHut\TemplateTokens\Classes;
 
-use Exception,
-    Lang;
-
 /**
  * Class TokenException
  *
  * @package KoderHut\TemplateTokens\Classes
  */
-class TokenException
-    extends Exception
+class TokenException extends \Exception
 {
-
     /**
      * Class constructor
      *
@@ -29,11 +24,11 @@ class TokenException
      * @param int            $code
      * @param Exception|null $previous
      */
-    public function __construct($message = "", $code = 0, Exception $previous = null)
+    public function __construct($message = "", $code = 0, \Exception $previous = null)
     {
         parent::__construct($message, $code, $previous);
 
-        $translatedMessage = Lang::get('koderhut.templatetokens::lang.exceptions.' . $code);
+        $translatedMessage = \Lang::get('koderhut.templatetokens::lang.exceptions.' . $code);
 
         if (null !== $translatedMessage) {
             $this->message = $translatedMessage;

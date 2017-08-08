@@ -12,7 +12,7 @@ modelClass:         KoderHut\TemplateTokens\Models\Token
 title:              koderhut.templatetokens::lang.fields.list_page_title.label
 
 # Link URL for each record
-recordOnClick:      $.templateTokens.updateToken(":token_name")
+recordOnClick:      $.templateTokens.updateToken(":entity_id")
 
 # Message to display if the list is empty
 noRecordsMessage:   backend::lang.list.no_records

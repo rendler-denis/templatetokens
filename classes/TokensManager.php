@@ -11,7 +11,6 @@
 namespace KoderHut\TemplateTokens\Classes;
 
 use Illuminate\Database\Eloquent\Collection;
-
 use KoderHut\TemplateTokens\Models\Token;
 
 /**
@@ -80,15 +79,15 @@ class TokensManager
      */
     public function __get($tokenName)
     {
-        $token = $this->tokens->find($tokenName);
+        $token = $this->tokens->first(function($token) use ($tokenName) {
+            return $token->token_name === $tokenName;
+        });
 
         if (! $token instanceof Token) {
             return null;
         }
 
-        $tokenVal = $token->token_value;
-
-        return $tokenVal;
+        return $token->token_value;
     }
 
     /**
@@ -100,6 +99,6 @@ class TokensManager
      */
     public function __isset($tokenName)
     {
-        return (bool)$this->tokens->contains($tokenName);
+        return (bool)$this->tokens->containsStrict('token_name', $tokenName);
     }
 }

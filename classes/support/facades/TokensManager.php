@@ -11,7 +11,6 @@
 namespace KoderHut\TemplateTokens\Classes\Support\Facades;
 
 use Illuminate\Support\Facades\Facade;
-
 use KoderHut\TemplateTokens\Classes\TokensManager as TMgr;
 
 /**
@@ -20,10 +19,8 @@ use KoderHut\TemplateTokens\Classes\TokensManager as TMgr;
  *
  * @package KoderHut\TemplateTokens\Classes\Support\Facades
  */
-class TokensManager
-    extends Facade
+class TokensManager extends Facade
 {
-
     /**
      * Return the facade namespace
      *

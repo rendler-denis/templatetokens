@@ -11,11 +11,8 @@
 namespace KoderHut\TemplateTokens\Classes;
 
 use Illuminate\Container\Container;
-
 use Cms\Classes\Controller as CmsController;
-
-use KoderHut\TemplateTokens\Classes\TokensManager,
-    KoderHut\TemplateTokens\Models\Token as TokensModel;
+use KoderHut\TemplateTokens\Models\Token;
 
 /**
  * Class Tokens
@@ -75,22 +72,15 @@ class TokensService
             return $this;
         }
 
-        $scopeBase = &$controller->vars['this'];
-
         foreach ($this->getScopeTokens() as $tokenScope) {
-            $tokens = TokensModel::tokenScope($tokenScope)->get();
+            $tokens = Token::tokenScope($tokenScope)->get();
 
             if (self::TOKEN_SCOPE_GLOBAL === $tokenScope) {
-                $scopeBase[$this->tmplTag] = new \stdClass();
-                $scope     = &$scopeBase[$this->tmplTag];
-            }
-            else {
-                $scopeBase[$tokenScope]->tk = new \stdClass();
-                $scope = &$scopeBase[$tokenScope]->{$this->tmplTag};
+                $controller->vars['this'][$this->tmplTag] = $this->initScope($tokenScope, $tokens);
+                continue;
             }
 
-            $scope = $this->initScope($tokenScope, $tokens);
-            unset($scope);
+            $controller->vars['this'][$tokenScope]->{$this->tmplTag} = $this->initScope($tokenScope, $tokens);
         }
 
         return $this;
@@ -103,13 +93,11 @@ class TokensService
      */
     public function getScopeTokens()
     {
-        $tokenConsts = [
+        return [
             self::TOKEN_SCOPE_GLOBAL,
             self::TOKEN_SCOPE_PAGE,
             self::TOKEN_SCOPE_LAYOUT,
         ];
-
-        return $tokenConsts;
     }
 
     /**
